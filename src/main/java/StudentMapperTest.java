@@ -28,17 +28,28 @@ public class StudentMapperTest {
         SqlSession sqlSession = null;
         try {
             sqlSession = sqlSessionFactory.openSession();
-
-
             //泛型数据数组 Student类型
-            List<Student> students = sqlSession.selectList("selectAll");
-            for (int i = 0; i < students.size(); i++) {
+//            List<Student> students = sqlSession.selectList("selectAll");
+//            for (int i = 0; i < students.size(); i++) {
+//
+//                //前面一个是List容器数组的方法，后面一个是对象自带的方法，用于获得该对象的名字。
+//
+//                System.out.println(students.get(i).getInfo());
+//
+//            }
+//            System.out.println("下面打印单个ID查询数据");
+//            //根据id查询信息
+//            Student a = sqlSession.selectOne("selectByPrimaryKey",6);
+//            System.out.println(a.getInfo());
 
-                //前面一个是List容器数组的方法，后面一个是对象自带的方法，用于获得该对象的名字。
+        sqlSession.selectOne("updateByPrimaryKey",6);
 
-                System.out.println(students.get(i).getInfo());
 
-            }
+
+            System.out.println(a.getInfo());
+
+
+
         } catch (Exception e) {
             e.printStackTrace();
 
@@ -49,4 +60,23 @@ public class StudentMapperTest {
         }
     }
 }
+
+//    @Test
+//    public void selectId() {
+//        SqlSession sqlSession = null;
+//        try {
+//            sqlSession = sqlSessionFactory.openSession();
+//            //泛型数据数组 Student类型
+//            Student a = sqlSession.selectOne("selectByPrimaryKey",5);
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//
+//        } finally {
+//            if (sqlSession != null) {
+//                sqlSession.close();
+//            }
+//        }
+//    }
+//}
 

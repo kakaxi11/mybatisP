@@ -19,5 +19,18 @@
         <include refid="Base_Column_List" />
         from student
     </select>
+    <select id="selectByPrimaryKey" flushCache="true"  resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from student
+        where student_id=#{student_id, jdbcType=INTEGER}
+    </select>
+    <update id="updateByPrimaryKey"  parameterType="com.homejim.mybatis.entity.Student">
+    update student
+    set
+    name=#{name, jdbcType=VARCHAR}, phone=#{phone, jdbcType=VARCHAR}, email=#{email, jdbcType=VARCHAR},
+    sex=#{sex, jdbcType=VARCHAR}, locked=#{locked, jdbcType=VARCHAR}
+    where student_id=#{studentId, jdbcType=INTEGER}
+  </update>
 </mapper>
 

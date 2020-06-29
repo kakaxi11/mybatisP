@@ -11,4 +11,6 @@ public interface StudentMapper {
      * @return
      */
     List<Student> selectAll();
+
+//    Student selectByPrimaryKey(int id);
 }
