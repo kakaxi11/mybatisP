@@ -22,31 +22,55 @@ public class StudentMapperTest {
             e.printStackTrace();
         }
     }
-
     @Test
     public void testSelectList() {
         SqlSession sqlSession = null;
         try {
             sqlSession = sqlSessionFactory.openSession();
-            //泛型数据数组 Student类型
-//            List<Student> students = sqlSession.selectList("selectAll");
-//            for (int i = 0; i < students.size(); i++) {
-//
-//                //前面一个是List容器数组的方法，后面一个是对象自带的方法，用于获得该对象的名字。
-//
-//                System.out.println(students.get(i).getInfo());
-//
-//            }
-//            System.out.println("下面打印单个ID查询数据");
-//            //根据id查询信息
-//            Student a = sqlSession.selectOne("selectByPrimaryKey",6);
+            //泛型数据数组 Student类型 获得全部数据的接口
+            System.out.println("查询成功");
+            List<Student> students = sqlSession.selectList("selectAll");
+            for (int i = 0; i < students.size(); i++) {
+
+                //前面一个是List容器数组的方法，后面一个是对象自带的方法，用于获得该对象的名字。
+
+                System.out.println(students.get(i).getInfo());
+            }
+            System.out.println("下面打印单个ID查询数据");
+//            //根据id查询单条记录的接口
+//            Student a = sqlSession.selectOne("selectByPrimaryKey",4);
+//            System.out.println(a.getInfo());
+//        sqlSession.selectOne("updateByPrimaryKey",)
 //            System.out.println(a.getInfo());
 
-        sqlSession.selectOne("updateByPrimaryKey",6);
 
 
+//sqlSession封装了多种sql增删改查方法,修改数据的接口
+//            Student a = new Student();
+//            a.setEmail("1099965awwaeaw@qq.com");
+//            a.setName("yes");
+//            a.setPhone("18591566521");
+//            a.setStudentId(4);
+//            int result = sqlSession.update("updateByPrimaryKey",a);
+//            System.out.println("操作成功");
+//            sqlSession.commit();
 
-            System.out.println(a.getInfo());
+
+//            添加和修改方法后面要加commit才会成功
+
+//            根据id删除某条记录  .,可以从前端获取数据
+//            int result1 = sqlSession.delete("deleteByPrimaryKey",6);
+
+
+            sqlSession.commit();
+//            Student b = new Student();
+//            b.setStudentId(10);
+//            b.setName("卡卡");
+//            b.setPhone("15684446448");
+//            b.setEmail("5561@ghmail.com");
+////插入数据时如果只想插入指定几列的数据必须先声明指定列,在mapper文件里的数据也有所区别，只需在values里写(#{id},#{name})这种形式即可
+//            int result2 = sqlSession.insert("insertObj",b);
+//                sqlSession.commit();
 
 
 

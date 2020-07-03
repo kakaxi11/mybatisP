@@ -21,11 +21,42 @@ public class Student {
     /**
      * 以下部分为setter和getter, 省略
      */
+    public void setStudentId(Integer studentId) {
+        this.studentId = studentId;
+    }
+
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone == null ? null : phone.trim();
+    }
+
+    public void setEmail(String email) {
+        this.email = email == null ? null : email.trim();
+    }
+
+    public void setSex(Byte sex) {
+        this.sex = sex;
+    }
+
+    public void setLocked(Byte locked) {
+        this.locked = locked;
+    }
+
+    public void setGmtCreated(Date gmtCreated) {
+        this.gmtCreated = gmtCreated;
+    }
+
+    public void setGmtModified(Date gmtModified) {
+        this.gmtModified = gmtModified;
+    }
 
 
     //该方法可获得当前对象的基本信息
     public String getInfo() {
-        return  this.name +"  " + this.phone+"  " + this.sex+" " + this.email;
+        return this.studentId +" " + this.name +"  " + this.phone+"  " + this.sex+" " + this.email;
     }
 //    public Byte getSex() {
 //        return  this.sex;

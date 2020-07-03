@@ -28,9 +28,17 @@
     <update id="updateByPrimaryKey"  parameterType="com.homejim.mybatis.entity.Student">
     update student
     set
-    name=#{name, jdbcType=VARCHAR}, phone=#{phone, jdbcType=VARCHAR}, email=#{email, jdbcType=VARCHAR},
-    sex=#{sex, jdbcType=VARCHAR}, locked=#{locked, jdbcType=VARCHAR}
+    name=#{name, jdbcType=VARCHAR}, phone=#{phone, jdbcType=VARCHAR}, email=#{email, jdbcType=VARCHAR}
     where student_id=#{studentId, jdbcType=INTEGER}
   </update>
+    <delete id="deleteByPrimaryKey"  parameterType="com.homejim.mybatis.entity.Student">
+    delete
+    from student
+    where student_id=#{studentId, jdbcType=INTEGER}
+  </delete>
+    <insert id="insertObj"  parameterType="com.homejim.mybatis.entity.Student">
+    insert into  student(student_id,name,phone,email)
+    values (#{studentId},#{name}, #{phone},#{email})
+  </insert>
 </mapper>
 
